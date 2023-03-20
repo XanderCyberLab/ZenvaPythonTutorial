@@ -1,12 +1,8 @@
 from turtle import *
 
-forward(50)
-right(90)
-forward(50)
-right(90)
-forward(50)
-right(90)
-forward(50)
+circle(50)
+forward(100)
+circle(50)
 
 done()
 

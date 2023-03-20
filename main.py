@@ -1,9 +1,20 @@
 from turtle import *
 
-circle(50)
+
+#testing 
+left(90)
 forward(100)
+right(90)
+forward(100)
+right(90)
+forward(100)
+right(90)
+forward(50)
 circle(50)
-#testing git
+forward(50)
+right(135)
+forward (100)
+
 done()
 
 

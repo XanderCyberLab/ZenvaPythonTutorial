@@ -126,6 +126,8 @@ end_fill()
 
 
 #Challenge: Create a Solar Like System with Different Color and Size Planets
+
+speed(10)
 bgcolor("black")
 
 color("orange")

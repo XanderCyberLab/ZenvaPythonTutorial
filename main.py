@@ -1,7 +1,14 @@
-from turtle import *
+hp = 100
+damage = 20
+potion = 50
 
 
+hp = hp - damage
 
-done()
+print(hp)
+
+hp = hp + potion
+
+print(hp)
 
 

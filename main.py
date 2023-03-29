@@ -1,16 +1,15 @@
-def say_hello (name):
-    print("Hello " + name)
- 
-say_hello("Alex")
-say_hello("Miriam")
-say_hello("Juvia")
- 
+from turtle import *
+
+speed (5)
+def move_and_turn (distance, angle):
+    forward(distance)
+    right(angle)
     
-#print("Hello Alex")
-#print("Hello Miriam")
-#print("Hello Juvia")
-
-
+move_and_turn(100, 45)
+move_and_turn(50, 90)
+move_and_turn(100, 45)
+done()
+    
 
 
 

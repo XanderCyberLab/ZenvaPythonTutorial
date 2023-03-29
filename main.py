@@ -1,12 +1,15 @@
-hp = 100
-damage = 20
-potion = 50
+def say_hello (name):
+    print("Hello " + name)
+ 
+say_hello("Alex")
+say_hello("Miriam")
+say_hello("Juvia")
+ 
+    
+#print("Hello Alex")
+#print("Hello Miriam")
+#print("Hello Juvia")
 
-
-hp = hp - damage
-print(hp)
-hp = hp + potion
-print(hp)
 
 
 

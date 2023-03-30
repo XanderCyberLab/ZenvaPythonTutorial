@@ -1,17 +1,9 @@
-from turtle import *
+def add_numbers (a, b):
+    sum = a + b
+    return sum
+num = add_numbers(100, 50)
 
-speed (5)
-bgcolor("black")
-
-def move_and_turn (distance, angle):
-    forward(distance)
-    right(angle)
-    
-color("red")
-move_and_turn(100, 45)
-move_and_turn(50, 90)
-move_and_turn(100, 45)
-done()
+print (num)
     
 
 

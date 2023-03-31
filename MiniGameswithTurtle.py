@@ -123,3 +123,72 @@ for x in range(100):
     draw_star(xpos, ypos)
 
 done()
+
+
+#Created a Game Moving the Turtle to the Water
+from turtle import *
+
+setup(600, 400)
+bgcolor("#C2B280")
+move_distance = 50
+
+penup()
+color("blue")
+goto(100,200)
+pendown()
+
+
+begin_fill()
+goto(300, 200)
+goto(300, -200)
+goto(100, -200)
+goto(100, 200)
+end_fill()
+
+penup()
+goto(-200, 0)
+
+pendown()
+shape("turtle")
+color("green")
+
+def move_up ():
+    setheading(90)
+    forward(move_distance)
+    check_goal()
+    
+def move_down ():
+    setheading(270)
+    forward(move_distance)
+    check_goal()
+
+def move_left ():
+    setheading(180)
+    forward(move_distance)
+    check_goal()
+
+def move_right ():
+    setheading(0)
+    forward(move_distance)
+    check_goal()
+
+def check_goal():
+    if xcor() > 100: #xcor brings the x position of the turtle
+        hideturtle()
+        color("white")
+        write("You made it to the water!")
+        
+        onkey(None, "Up")
+        onkey(None, "Down")
+        onkey(None, "Left")
+        onkey(None, "Right")  
+               
+
+#Key press events    
+onkey(move_up, "Up")
+onkey(move_down, "Down")
+onkey(move_left, "Left")
+onkey(move_right, "Right")
+listen()
+
+done()

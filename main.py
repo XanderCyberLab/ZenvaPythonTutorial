@@ -1,12 +1,12 @@
 from turtle import *
 from random import *
 
-speed(20)
+
 bgcolor("black")
 hideturtle()
 width = window_width()
 height = window_height()
-
+speed (0)
 
 def draw_star(xpos, ypos):
     star_size = randrange(5, 25)
@@ -17,8 +17,8 @@ def draw_star(xpos, ypos):
     
 
 for x in range(100):
-    xpos = randrange(-300, width)
-    ypos = randrange(-300, height)
+    xpos = randrange(round(-width / 2), round(width))
+    ypos = randrange(round(-height / 2), round(height))
     draw_star(xpos, ypos)
 
 done()

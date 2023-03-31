@@ -6,7 +6,7 @@ for x in range(10):
     print(num)
     
     
-from turtle import *
+#from turtle import *
 
 bgcolor("black")
 

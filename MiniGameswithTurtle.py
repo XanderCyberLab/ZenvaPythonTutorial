@@ -22,7 +22,7 @@ print(hp)
 
 
 #Creating a balloon popper game
-from turtle import *
+#from turtle import *
 
 diameter = 40
 pop_diameter = 200
@@ -51,7 +51,7 @@ onkey(inflate_balloon, "Up")
 listen()
 
 #Attempt to create 3 Balloons. Will need to come back to this.
-from turtle import *
+#from turtle import *
 
 bgcolor("black")
 
@@ -99,8 +99,8 @@ listen()
 done()
 
 #Starry Sky
-from turtle import *
-from random import *
+#from turtle import *
+#from random import *
 
 
 bgcolor("black")

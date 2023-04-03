@@ -20,6 +20,12 @@ patients_and_diagnoses = [
 def list_patients():
     for patient in patients_and_diagnoses:
         print(patient)
+
+def save_new_diagnosis(name, diagnosis):
+    final_diagnosis = name + ": " + diagnosis
+    patients_and_diagnoses.append(final_diagnosis)
+    print("Final Diagnosis: " + final_diagnosis + "\n")
+    
 def assess_eyes(eyes):
     if eyes == "1":
         return no_dehydration
@@ -44,7 +50,7 @@ def run_diagnosis():
 def new_diagnosis_status():
     name = input(name_prompt)
     diagnosis = run_diagnosis()
-    print(name, diagnosis)
+    save_new_diagnosis(name, diagnosis)
 
 def main():     
     while(True):

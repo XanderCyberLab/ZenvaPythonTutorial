@@ -22,6 +22,9 @@ def list_patients():
         print(patient)
 
 def save_new_diagnosis(name, diagnosis):
+    if name == "" or diagnosis == "":
+        print("Please enter a valid input \n")
+        return
     final_diagnosis = name + ": " + diagnosis
     patients_and_diagnoses.append(final_diagnosis)
     print("Final Diagnosis: " + final_diagnosis + "\n")
@@ -31,12 +34,16 @@ def assess_eyes(eyes):
         return no_dehydration
     elif eyes == "2":
         return severe_dehydration
+    else:
+        return ""
 
 def assess_skin(skin):
     if skin == "1":
         return some_dehydration
     elif skin == "2":
         return severe_dehydration
+    else:
+        return ""
 
 def run_diagnosis():    
     appearance = input(appearance_prompt)

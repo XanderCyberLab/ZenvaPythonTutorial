@@ -10,9 +10,16 @@ no_dehydration = "No Dehydration"
 some_dehydration = "Some Dehydration"
 severe_dehydration = "Severe Dehydration"
 
-def list_patients():
-    print("Listing patients")
+patients_and_diagnoses = [
+    "Alexander: No Dehydration",
+    "Miriam: Some Dehydration",
+    "Wishymashy: Severe Dehydration"
+]
 
+
+def list_patients():
+    for patient in patients_and_diagnoses:
+        print(patient)
 def assess_eyes(eyes):
     if eyes == "1":
         return no_dehydration

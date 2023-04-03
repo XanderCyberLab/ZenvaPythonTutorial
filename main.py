@@ -13,38 +13,31 @@ severe_dehydration = "Severe Dehydration"
 def list_patients():
     print("Listing patients")
 
-def run_diagnosis():
-    name = input(name_prompt)
+def assess_eyes(eyes):
+    if eyes == "1":
+        return no_dehydration
+    elif eyes == "2":
+        return severe_dehydration
+
+def assess_skin(skin):
+    if skin == "1":
+        return some_dehydration
+    elif skin == "2":
+        return severe_dehydration
+
+def run_diagnosis():    
     appearance = input(appearance_prompt)
     if appearance == "1":
-        assess_eyes()
+        eyes = input(eyes_prompt)
+        return assess_eyes(eyes)
     elif appearance == "2":
-        assess_skin()
-    else:
-        return 
-
-def assess_eyes():
-    print(normal_appearance)
-    eyes = input(eyes_prompt)
-    if eyes == "1":
-        print(no_dehydration)
-    elif eyes == "2":
-        print(severe_dehydration)
-    else:
-        return
-
-
-def assess_skin():
-    print(irritable_appearance)
-    skin = input(skin_prompt)
-    if skin == "1":
-        print(some_dehydration)
-    elif skin == "2":
-        print(severe_dehydration)
-    else:
-        return
-
-
+        skin = input(skin_prompt)
+        return assess_skin(skin)
+    
+def new_diagnosis_status():
+    name = input(name_prompt)
+    diagnosis = run_diagnosis()
+    print(name, diagnosis)
 
 def main():     
     while(True):
@@ -52,7 +45,7 @@ def main():
         if selection == "1":
             list_patients()
         elif selection == "2":
-            run_diagnosis()
+            new_diagnosis_status()
         elif selection == "q":
             return
 

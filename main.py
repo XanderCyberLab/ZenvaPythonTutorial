@@ -3,9 +3,9 @@ new_user_prompt = "Please enter a new username:\n"
 tasks_prompt ="Please select a task:\n 1 - List Saved Tasks\n 2 - Create a Task\n"
 
 users_database = [
-    "Alexander",
-    "Miriam",
-    "Juvia"
+    'Alexander',
+    'Miriam',
+    'Juvia'
 ]
 
 users_task = [
@@ -33,9 +33,9 @@ def select_user():
     print("Select a User\n")
     for index, username in enumerate(users_database):
         print(f'{index + 1}. {username}')
-    user_selection = int(input() - 1)
+    user_selection = int(input()) - 1
     
-    print("Welcome " + user_selection + "\n")
+    print(f'Welcome {users_database[user_selection]}\n')
     task_user()
 
 def task_user():

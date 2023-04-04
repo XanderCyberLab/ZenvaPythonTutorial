@@ -72,4 +72,27 @@ def main():
         elif selection == "q":
             return
 
-main()
+#main()
+
+
+def test_assess_skin():
+    print("Test Assess Skin")
+    print(assess_skin("1") == some_dehydration)
+    print(assess_skin("2") == severe_dehydration)
+    print(assess_skin("3") == "")
+
+test_assess_skin()
+
+def test_assess_eyes():
+    print("Test Assess Eyes")
+    print(assess_eyes("1") == no_dehydration)
+    print(assess_eyes("2") == severe_dehydration)
+    print(assess_eyes("3") == "")
+
+test_assess_eyes()
+
+def test_run_diagnosis():
+    print("Test Run Diagnosis")
+    print(run_diagnosis())
+
+test_run_diagnosis()

@@ -9,6 +9,7 @@ irritable_appearance = "Do a skin pinch\n"
 no_dehydration = "No Dehydration"
 some_dehydration = "Some Dehydration"
 severe_dehydration = "Severe Dehydration"
+error_message = "Please enter a valid input"
 
 patients_and_diagnoses = [
     "Alexander: No Dehydration",
@@ -23,7 +24,7 @@ def list_patients():
 
 def save_new_diagnosis(name, diagnosis):
     if name == "" or diagnosis == "":
-        print("Please enter a valid input \n")
+        print(error_message)
         return
     final_diagnosis = name + ": " + diagnosis
     patients_and_diagnoses.append(final_diagnosis)
@@ -53,6 +54,8 @@ def run_diagnosis():
     elif appearance == "2":
         skin = input(skin_prompt)
         return assess_skin(skin)
+    else:   
+        return ""
     
 def new_diagnosis_status():
     name = input(name_prompt)

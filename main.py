@@ -6,11 +6,19 @@ users_database = [
 ]
 
 def list_users():
-    for username in users_database:
+    for users in users_database:
         print(users)
 
 def new_user():
     username = input(new_user_prompt)
+    users_database.append(username)
+    print("New User Created: " + username + "\n")
+    
+def select_user():
+    print("Select a User\n")
+    list_users()
+    user_selection = input()
+    print("Welcome " + user_selection + "\n")
     
 
 def main():
@@ -20,6 +28,8 @@ def main():
             list_users()
         elif selection == "2":
             new_user()
+        elif selection == "3":
+            select_user()
         else:
             return
             

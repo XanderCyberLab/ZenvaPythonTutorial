@@ -1,6 +1,7 @@
-welcome_prompt = "Welcome to Wishymashy's Notepad!\n Please Select an Option:\n - 1 List of Users\n - 2 Create a New User\n - 3 Select User\n"
+welcome_prompt = "Welcome to Wishymashy's Notepad!\n Please Select an Option:\n - 1 List of Users\n - 2 Create a New User\n - 3 Select User\n - 4 Delete User\n - 5 Exit\n"
 new_user_prompt = "Please enter a new username:\n"
-tasks_prompt ="Please select a task:\n 1 - List Saved Tasks\n 2 - Create a Task\n"
+tasks_prompt ="Please select a task:\n 1 - List Saved Tasks\n 2 - Create a Task\n 3 - Remove a Task\n"
+
 
 users_database = {
     'Alexander': [],
@@ -8,8 +9,6 @@ users_database = {
 }
 
 users_task = [
-    "Test1: Category: Task 1",
-    "Test2: Category: Task 2"
 ]
 
 
@@ -41,6 +40,8 @@ def task_user(selected_user):#Passes the selected user from select_user function
         list_tasks(selected_user)
     elif task_selection == "2":
         new_task(selected_user)#Passes the selected user to new_task function
+    elif task_selection == "3":
+        remove_task()
     else:
         return ""
     
@@ -54,6 +55,20 @@ def select_user():
     task_user(selected_user)
     return selected_user #This is to return the selected user to the main function
 
+def remove_user():
+    print("Select a User to Remove")
+    for index, username in enumerate(users_database):#For loop with enumerate is to # the list
+        print(f'{index + 1}. {username}')
+    user_selection = int(input()) - 1 #-1 is to make the list start at 0
+    users_database.pop(list(users_database.keys())[user_selection])
+    
+def remove_task():
+    print(f'List of Tasks for {selected_user}:\n')
+    for index, tasks in enumrate(users_database[selected_user]):
+        print(f'{index + 1}. {tasks}')
+    task_selection = int(input()) - 1
+    users_task.pop(list(users_database[selected_user])[task_selection])
+    
 def main():
     while True:
         selection = input(welcome_prompt)
@@ -64,6 +79,10 @@ def main():
         elif selection == "3":
             selected_user = select_user()#Creates a variable and returns the selected user from select user function
             #task_user(selected_user)#With selected user variable, it is passed to task_user function
+        elif selection == "4":
+            remove_user()
+        elif selection == "5":
+            exit() 
         else:
             return ""
             

@@ -27,14 +27,13 @@ def new_user():
     print("New User Created: " + username + "\n")
     
 def new_task():
-    print("Create a new tasks\n")
+    print("Please enter a new task:\n")
     
 def select_user():
     print("Select a User\n")
     for index, username in enumerate(users_database):
         print(f'{index + 1}. {username}')
-    user_selection = int(input()) - 1
-    
+    user_selection = int(input()) - 1    
     print(f'Welcome {users_database[user_selection]}\n')
     task_user()
 

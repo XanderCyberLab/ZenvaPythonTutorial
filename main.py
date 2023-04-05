@@ -5,7 +5,7 @@ tasks_prompt ="Please select a task:\n 1 - List Saved Tasks\n 2 - Create a Task\
 users_database = [
     'Alexander',
     'Miriam',
-    'Juvia'
+    'Juvia' 
 ]
 
 users_task = [

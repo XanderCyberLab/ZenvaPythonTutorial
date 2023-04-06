@@ -104,8 +104,7 @@ def main():
                 pickle.dump(users_database, f)
                 exit() 
         else:
-            return ""
-            
+            return ""            
 main()
 
 

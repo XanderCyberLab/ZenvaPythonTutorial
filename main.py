@@ -41,7 +41,7 @@ def task_user(selected_user):#Passes the selected user from select_user function
     elif task_selection == "2":
         new_task(selected_user)#Passes the selected user to new_task function
     elif task_selection == "3":
-        remove_task()
+        remove_task(selected_user)
     else:
         return ""
     
@@ -62,12 +62,13 @@ def remove_user():
     user_selection = int(input()) - 1 #-1 is to make the list start at 0
     users_database.pop(list(users_database.keys())[user_selection])
     
-def remove_task():
+def remove_task(selected_user):
     print(f'List of Tasks for {selected_user}:\n')
-    for index, tasks in enumrate(users_database[selected_user]):
+    for index, tasks in enumerate(users_database[selected_user]):
         print(f'{index + 1}. {tasks}')
     task_selection = int(input()) - 1
-    users_task.pop(list(users_database[selected_user])[task_selection])
+    removed_task = tasks.pop(users_database[task_selection])
+    print(f'Task removed: {removed_task}')
     
 def main():
     while True:

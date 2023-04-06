@@ -30,8 +30,8 @@ def new_user():
 def new_task(selected_user):
     print(f"Please enter a new task for {selected_user}:\n")
     task = input()
-    tasks = users_database[selected_user]
-    users_database[selected_user].append(task)
+    tasks = users_database[selected_user]#This is to select the tasks from the selected user
+    users_database[selected_user].append(task)#This is to add the task to the selected user
     print(f'New Task Created: {task} for user {selected_user}\n') 
 
 def task_user(selected_user):#Passes the selected user from select_user function
@@ -60,14 +60,16 @@ def remove_user():
     for index, username in enumerate(users_database):#For loop with enumerate is to # the list
         print(f'{index + 1}. {username}')
     user_selection = int(input()) - 1 #-1 is to make the list start at 0
-    users_database.pop(list(users_database.keys())[user_selection])
+    users_database.pop(list(users_database.keys())[user_selection])#This is to select the user from the list and remove it
+    print(f'User {user_selection} removed\n')
     
 def remove_task(selected_user):
     print(f'List of Tasks for {selected_user}:\n')
-    for index, tasks in enumerate(users_database[selected_user]):
-        print(f'{index + 1}. {tasks}')
+    tasks = users_database[selected_user]
+    for index, task in enumerate(tasks):#For loop with enumerate is to # the list
+        print(f'{index + 1}. {task}')
     task_selection = int(input()) - 1
-    removed_task = tasks.pop(users_database[task_selection])
+    removed_task = tasks.pop(task_selection)#This is to select the task from the list and remove it
     print(f'Task removed: {removed_task}')
     
 def main():

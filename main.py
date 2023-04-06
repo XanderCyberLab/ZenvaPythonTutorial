@@ -1,12 +1,18 @@
+import pickle
+
 welcome_prompt = "Welcome to Wishymashy's Notepad!\n Please Select an Option:\n - 1 List of Users\n - 2 Create a New User\n - 3 Select User\n - 4 Delete User\n - 5 Exit\n"
 new_user_prompt = "Please enter a new username:\n"
 tasks_prompt ="Please select a task:\n 1 - List Saved Tasks\n 2 - Create a Task\n 3 - Remove a Task\n"
 
+try:
+    with open('users_database.pickle', 'rb') as f:
+        users_database = pickle.load(f)
+except FileNotFoundError:
+    users_database = {
+        'Alexander': [],
+        'Miriam': [],
+    }
 
-users_database = {
-    'Alexander': [],
-    'Miriam': [],
-}
 
 users_task = [
 ]
@@ -90,4 +96,11 @@ def main():
             return ""
             
 main()
+
+
+
                 
+
+
+with open('users_database.pickle', 'wb') as f:
+    pickle.dump(users_database, f)

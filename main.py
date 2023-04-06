@@ -2,7 +2,7 @@ import pickle
 
 welcome_prompt = "Welcome to Wishymashy's Notepad!\n Please Select an Option:\n - 1 List of Users\n - 2 Create a New User\n - 3 Select User\n - 4 Delete User\n - 5 Exit\n"
 new_user_prompt = "Please enter a new username:\n"
-tasks_prompt ="Please select a task:\n 1 - List Saved Tasks\n 2 - Create a Task\n 3 - Remove a Task\n"
+tasks_prompt ="Please select a task:\n 1 - List Saved Tasks\n 2 - Create a Task\n 3 - Remove a Task\n 4 - Return to Main Menu\n"
 
 try:
     with open('users_database.pickle', 'rb') as f:
@@ -41,15 +41,18 @@ def new_task(selected_user):
     print(f'New Task Created: {task} for user {selected_user}\n') 
 
 def task_user(selected_user):#Passes the selected user from select_user function
-    task_selection = input(tasks_prompt)
-    if task_selection == "1":
-        list_tasks(selected_user)
-    elif task_selection == "2":
-        new_task(selected_user)#Passes the selected user to new_task function
-    elif task_selection == "3":
-        remove_task(selected_user)
-    else:
-        return ""
+    while True:
+        task_selection = input(tasks_prompt)
+        if task_selection == "1":
+            list_tasks(selected_user)
+        elif task_selection == "2":
+            new_task(selected_user)#Passes the selected user to new_task function
+        elif task_selection == "3":
+            remove_task(selected_user)
+        elif task_selection == "4":
+            main()
+        else:
+            return ""
     
 def select_user():
     print("Select a User\n")

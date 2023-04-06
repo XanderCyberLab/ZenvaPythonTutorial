@@ -1,11 +1,11 @@
-import pickle
+import pickle#This is to save the database to a file
 
 welcome_prompt = "Welcome to Wishymashy's Notepad!\n Please Select an Option:\n - 1 List of Users\n - 2 Create a New User\n - 3 Select User\n - 4 Delete User\n - 5 Exit\n"
 new_user_prompt = "Please enter a new username:\n"
 tasks_prompt ="Please select a task:\n 1 - List Saved Tasks\n 2 - Create a Task\n 3 - Remove a Task\n 4 - Return to Main Menu\n"
 
 try:
-    with open('users_database.pickle', 'rb') as f:
+    with open('users_database.pickle', 'rb') as f:#This is to open the file and read it
         users_database = pickle.load(f)
 except FileNotFoundError:
     users_database = {
@@ -13,10 +13,8 @@ except FileNotFoundError:
         'Miriam': [],
     }
 
-
 users_task = [
 ]
-
 
 def list_users():
     for user in users_database:
@@ -58,11 +56,19 @@ def select_user():
     print("Select a User\n")
     for index, username in enumerate(users_database):#For loop with enumerate is to # the list
         print(f'{index + 1}. {username}')
-    user_selection = int(input()) - 1 #-1 is to make the list start at 0
-    selected_user = list(users_database.keys())[user_selection] #This is to select the user from the list  
-    print(f'Welcome {selected_user}\n')
-    task_user(selected_user)
-    return selected_user #This is to return the selected user to the main function
+    try:
+        user_selection = int(input()) - 1 #-1 is to make the list start at 0
+        if user_selection < len(users_database):
+            selected_user = list(users_database.keys())[user_selection] #This is to select the user from the list  
+            print(f'Welcome {selected_user}\n')
+            task_user(selected_user)
+            return selected_user #This is to return the selected user to the main function
+        else:
+            print("Invalid Selection\n")
+            select_user()
+    except ValueError:
+        print("Invalid input. Please enter a number.\n")
+        select_user()
 
 def remove_user():
     print("Select a User to Remove")
@@ -99,7 +105,6 @@ def main():
                 exit() 
         else:
             return ""
-
             
 main()
 

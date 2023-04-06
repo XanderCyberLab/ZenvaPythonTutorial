@@ -91,9 +91,12 @@ def main():
         elif selection == "4":
             remove_user()
         elif selection == "5":
-            exit() 
+            with open('users_database.pickle', 'wb') as f:
+                pickle.dump(users_database, f)
+                exit() 
         else:
             return ""
+
             
 main()
 
@@ -102,5 +105,4 @@ main()
                 
 
 
-with open('users_database.pickle', 'wb') as f:
-    pickle.dump(users_database, f)
+

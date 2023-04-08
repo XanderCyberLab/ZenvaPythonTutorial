@@ -4,22 +4,14 @@ welcome_prompt = "Welcome to Wishymashy's Notepad!\n Please Select an Option:\n 
 new_user_prompt = "Please enter a new username:\n"
 tasks_prompt ="Please select a task:\n 1 - List Saved Tasks\n 2 - Create a Task\n 3 - Remove a Task\n 4 - Return to Main Menu\n"
 
-<<<<<<< HEAD
+
 try:#Try to open the file
     with open('users_database.pickle', 'rb') as f:#rb is read binary to read the file
         users_database = pickle.load(f)#Loads the file
 except FileNotFoundError:#If the file is not found, it will create a new file
-=======
-try:
-    with open('users_database.pickle', 'rb') as f:#This is to open the file and read it
-        users_database = pickle.load(f)
-except FileNotFoundError:
->>>>>>> 5cbb840730de51a92c5c34608455e1805e157d39
-    users_database = {
-    }
+    users_database = {}
 
-users_task = [
-]
+users_task = {}
 
 def list_users():
     for user in users_database:
@@ -33,7 +25,7 @@ def list_tasks(selected_user):
 
 def new_user():
     username = input(new_user_prompt)
-    users_database[username] = []
+    users_database[username] = []#This is to add the new user to the database
     print(f'New User Created: {username}\n')
     
 def new_task(selected_user):
@@ -60,7 +52,7 @@ def task_user(selected_user):#Passes the selected user from select_user function
 def select_user():
     print("Select a User\n")
     for index, username in enumerate(users_database):#For loop with enumerate is to # the list
-        print(f'{index + 1}. {username}')
+        print(f'{index + 1}. {username}')#This is to print the list with numbers
     try:
         user_selection = int(input()) - 1 #-1 is to make the list start at 0
         if user_selection < len(users_database):

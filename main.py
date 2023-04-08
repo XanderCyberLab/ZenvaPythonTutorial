@@ -13,42 +13,17 @@ except FileNotFoundError:#If the file is not found, it will create a new file
 
 users_task = {}
 
+#############List Users#############
 def list_users():
     for user in users_database:
         print(user)
-
-def list_tasks(selected_user):
-    print(f'List of Tasks for {selected_user}:\n')
-    tasks = users_database[selected_user]
-    for task in tasks:
-        print(task)
 
 def new_user():
     username = input(new_user_prompt)
     users_database[username] = []#This is to add the new user to the database
     print(f'New User Created: {username}\n')
-    
-def new_task(selected_user):
-    print(f"Please enter a new task for {selected_user}:\n")
-    task = input()
-    tasks = users_database[selected_user]#This is to select the tasks from the selected user
-    users_database[selected_user].append(task)#This is to add the task to the selected user
-    print(f'New Task Created: {task} for user {selected_user}\n') 
 
-def task_user(selected_user):#Passes the selected user from select_user function
-    while True:
-        task_selection = input(tasks_prompt)
-        if task_selection == "1":
-            list_tasks(selected_user)
-        elif task_selection == "2":
-            new_task(selected_user)#Passes the selected user to new_task function
-        elif task_selection == "3":
-            remove_task(selected_user)
-        elif task_selection == "4":
-            main()
-        else:
-            return ""
-    
+#############Select User#############
 def select_user():
     print("Select a User\n")
     for index, username in enumerate(users_database):#For loop with enumerate is to # the list
@@ -67,6 +42,33 @@ def select_user():
         print("Invalid input. Please enter a number.\n")
         select_user()
 
+def list_tasks(selected_user):
+    print(f'List of Tasks for {selected_user}:\n')
+    tasks = users_database[selected_user]
+    for task in tasks:
+        print(task)
+    
+def new_task(selected_user):
+    print(f"Please enter a new task for {selected_user}:\n")
+    task = input()
+    tasks = users_database[selected_user]#This is to select the tasks from the selected user
+    users_database[selected_user].append(task)#This is to add the task to the selected user
+    print(f'New Task Created: {task} fo0r user {selected_user}\n') 
+
+def task_user(selected_user):#Passes the selected user from select_user function
+    while True:
+        task_selection = input(tasks_prompt)
+        if task_selection == "1":
+            list_tasks(selected_user)
+        elif task_selection == "2":
+            new_task(selected_user)#Passes the selected user to new_task function
+        elif task_selection == "3":
+            remove_task(selected_user)
+        elif task_selection == "4":
+            main()
+        else:
+            return ""
+#############Remove User#############
 def remove_user():
     print("Select a User to Remove")
     for index, username in enumerate(users_database):#For loop with enumerate is to # the list
@@ -83,7 +85,9 @@ def remove_task(selected_user):
     task_selection = int(input()) - 1
     removed_task = tasks.pop(task_selection)#This is to select the task from the list and remove it
     print(f'Task removed: {removed_task}')
-    
+
+
+#############Main Function#############
 def main():
     while True:
         selection = input(welcome_prompt)

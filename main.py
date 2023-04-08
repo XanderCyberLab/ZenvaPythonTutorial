@@ -33,27 +33,26 @@ def select_user():
         if user_selection < len(users_database):
             selected_user = list(users_database.keys())[user_selection] #This is to select the user from the list  
             print(f'Welcome {selected_user}\n')
-            task_user(selected_user)
+            task_user(selected_user)#With selected user variable, it is passed to task_user function
             return selected_user #This is to return the selected user to the main function
         else:
             print("Invalid Selection\n")
             select_user()
-    except ValueError:
+    except ValueError:#If the user enters a string, it will return an error
         print("Invalid input. Please enter a number.\n")
         select_user()
 
-def list_tasks(selected_user):
+def list_tasks(selected_user):#Passes the selected user from select_user function
     print(f'List of Tasks for {selected_user}:\n')
-    tasks = users_database[selected_user]
+    tasks = users_database[selected_user]#This is to select the tasks from the selected user
     for task in tasks:
         print(task)
     
 def new_task(selected_user):
     print(f"Please enter a new task for {selected_user}:\n")
     task = input()
-    tasks = users_database[selected_user]#This is to select the tasks from the selected user
     users_database[selected_user].append(task)#This is to add the task to the selected user
-    print(f'New Task Created: {task} fo0r user {selected_user}\n') 
+    print(f'New Task Created: {task} for user {selected_user}\n') 
 
 def task_user(selected_user):#Passes the selected user from select_user function
     while True:
@@ -79,7 +78,7 @@ def remove_user():
     
 def remove_task(selected_user):
     print(f'List of Tasks for {selected_user}:\n')
-    tasks = users_database[selected_user]
+    tasks = users_database[selected_user]#This is to select the tasks from the selected user.
     for index, task in enumerate(tasks):#For loop with enumerate is to # the list
         print(f'{index + 1}. {task}')
     task_selection = int(input()) - 1
@@ -101,8 +100,8 @@ def main():
         elif selection == "4":
             remove_user()
         elif selection == "5":
-            with open('users_database.pickle', 'wb') as f:
-                pickle.dump(users_database, f)
+            with open('users_database.pickle', 'wb') as f:#wb is write binary to write the file
+                pickle.dump(users_database, f)#Dumps the file
                 exit() 
         else:
             return ""            

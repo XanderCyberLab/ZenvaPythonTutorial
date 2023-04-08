@@ -4,13 +4,11 @@ welcome_prompt = "Welcome to Wishymashy's Notepad!\n Please Select an Option:\n 
 new_user_prompt = "Please enter a new username:\n"
 tasks_prompt ="Please select a task:\n 1 - List Saved Tasks\n 2 - Create a Task\n 3 - Remove a Task\n"
 
-try:
-    with open('users_database.pickle', 'rb') as f:
-        users_database = pickle.load(f)
-except FileNotFoundError:
+try:#Try to open the file
+    with open('users_database.pickle', 'rb') as f:#rb is read binary to read the file
+        users_database = pickle.load(f)#Loads the file
+except FileNotFoundError:#If the file is not found, it will create a new file
     users_database = {
-        'Alexander': [],
-        'Miriam': [],
     }
 
 
